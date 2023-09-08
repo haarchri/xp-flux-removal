@@ -1,0 +1,7 @@
+apiVersion: test.haarchri.io/v1
+kind: TestObject
+metadata:
+  name: test-conversion
+  namespace: upbound-system
+spec:
+  example-trigger: example-value

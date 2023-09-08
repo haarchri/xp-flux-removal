@@ -1,0 +1,20 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  labels:
+    version: v0.0.1
+  annotations:
+    kustomize.toolkit.fluxcd.io/prune: "disabled"
+  name: xtestobjects.test.haarchri.io
+spec:
+  compositeTypeRef:
+    apiVersion: test.haarchri.io/v1
+    kind: XTestObject
+  resources:
+    - name: object-a
+      base:
+        apiVersion: null.template.upbound.io/v1alpha1
+        kind: Resource
+      patches:
+        - fromFieldPath: spec.example-trigger
+          toFieldPath: spec.forProvider.triggers.example-trigger
